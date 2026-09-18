@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Shree ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BACKGROUND MUSIC
+========================================================= -->
+
+<audio id="birthdayMusic" loop preload="auto">
+
+    <source
+        src="{{ url_for('static', filename='music/love.mp3') }}"
+        type="audio/mpeg">
+
+</audio>
+
+
+
+<!-- =========================================================
+     OPENING SCREEN
+========================================================= -->
+
+<section id="opening" class="opening-screen">
+
+    <div class="opening-content">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <p class="opening-small">
+            A little wish for
+        </p>
+
+        <h1>
+            My Shree
+        </h1>
+
+        <p class="opening-message">
+            There is something I want you to see...
+        </p>
+
+        <button
+            class="open-heart-button"
+            onclick="startSurprise()">
+
+            Click to Open Because 💗
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MAIN BIRTHDAY WEBSITE
+========================================================= -->
+
+<main id="birthdayContent">
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section id="hero" class="hero-section">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            Today is all about you ❤️
+        </p>
+
+        <h1>
+            Happy Birthday
+            <span>Shree</span>
+        </h1>
+
+        <p class="hero-text">
+
+            To the woman who makes my world
+            brighter, warmer and more beautiful...
+
+        </p>
+
+        <div class="hero-heart">
+            ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTRODUCTION
+========================================================= -->
+
+<section class="intro-section">
+
+    <div class="section-container">
+
+        <p class="section-label">
+            OUR STORY
+        </p>
+
+        <h2>
+            Every moment with you is special ❤️
+        </h2>
+
+        <p class="intro-text">
+
+            Some people come into our lives and change everything.
+
+            You are that person for me.
+
+            Every smile, every conversation, every little memory
+            we have created together has become a part of my heart.
+
+        </p>
+
+        <p class="intro-text">
+
+            A small collection of
+            moments  that we made we
+            together.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PHOTO GALLERY
+========================================================= -->
+
+<section class="gallery-section">
+
+    <div class="section-container">
+
+        <p class="section-label">
+            OUR MEMORIES
+        </p>
+
+        <h2>
+             Moments 📸
+        </h2>
+
+        <p class="section-description">
+            Every picture has a story.
+            Every story has you.
+        </p>
+
+
+        <div class="photo-grid">
+
+            {% for photo in photos %}
+
+                {% if photo %}
+
+                <div
+                    class="photo-card"
+                    onclick="openPhoto(this)">
+
+                    <img
+                        src="{{ url_for('static', filename='photos/' ~ photo) }}"
+                        alt="Our memory {{ loop.index }}"
+                        loading="lazy">
+
+                    <div class="photo-number">
+                        Memory {{ loop.index }}
+                    </div>
+
+                </div>
+
+                {% else %}
+
+                <div class="photo-card empty-photo">
+
+                    <div>
+                        ❤️
+                        <br>
+                        <span>
+                            Memory {{ loop.index }}
+                        </span>
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PHOTO LIGHTBOX
+========================================================= -->
+
+<div
+    id="photoLightbox"
+    class="photo-lightbox"
+    onclick="closePhoto()">
+
+    <button
+        class="close-lightbox"
+        onclick="closePhoto()">
+
+        ×
+
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Memory">
+
+</div>
+
+
+
+<!-- =========================================================
+     VIDEO SECTION
+========================================================= -->
+
+<section class="video-section">
+
+    <div class="section-container">
+
+        <p class="section-label">
+            OUR STORY IN MOTION
+        </p>
+
+        <h2>
+            A Little Video For You 🎥
+        </h2>
+
+        <p class="section-description">
+            Some memories are even better when they move.
+        </p>
+
+
+        <div class="video-frame">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="{{ url_for('static', filename='videos/memory.mp4') }}"
+                    type="video/mp4">
+
+                Your browser does not support video.
+
+            </video>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LOVE LETTER
+========================================================= -->
+
+<section class="letter-section">
+
+    <div class="section-container">
+
+        <p class="section-label">
+            FROM MY HEART
+        </p>
+
+
+
+<div class="letter-card">
+
+    <h2>💌 A Letter to Anpu </h2>
+
+    <p> Hii.. My Wife ❤️</p>
+
+    <p>
+        In our first few meetings, I didn't understand the value of having
+        someone like you in my life. There were times when I hurt you,
+        took you for granted, and didn't give you the love, respect,
+        and importance that you truly deserved.
+    </p>
+
+    <p>
+        Looking back now, I realize that I could have treated you better.
+        I could have understood your feelings more deeply and appreciated
+        your presence in my life much earlier.
+    </p>
+
+    <p>
+        But somewhere along the way, you became much more than just
+        someone I loved. You became my home, my comfort, my strength,
+        and the person I never want to lose.
+    </p>
+
+    <p>
+        You changed me without asking me to change.
+        Your love slowly taught me to understand, to care,
+        to respect, and to look beyond myself.
+    </p>
+
+    <p>
+        And the biggest thing I realized is this:
+        <br><br>
+        <b>You became more important to me than my ego.</b> ❤️
+    </p>
+
+    <p>
+        I don't want to be the person who always needs to be right.
+        I want to be the person who understands you,
+        stands beside you, protects your happiness,
+        and makes you feel loved every day.
+    </p>
+
+    <p>
+        I'm truly sorry for the moments when I made you feel hurt,
+        unimportant, or taken for granted.
+        I may not be able to change those moments,
+        but I can promise you that I will carry those lessons
+        with me and become a better husband for you.
+    </p>
+
+    <p>
+        Today, when I look at you as my wife,
+        I feel incredibly lucky.
+        The person I once didn't fully understand
+        has become the person who understands me
+        better than anyone else.
+    </p>
+
+    <p>
+        I don't know what the future will bring,
+        but I know one thing for certain:
+        I want to experience it all with you.
+    </p>
+
+    <p>
+        I want to be beside you through the good days,
+        the difficult days, the celebrations,
+        the quiet moments, and everything in between.
+    </p>
+
+    <p>
+        Thank you for loving me even when I didn't always know
+        how to show you the love you deserved.
+        Thank you for staying beside me,
+        believing in us, and becoming such an important part of my life.
+    </p>
+
+    <p>
+        You are not just my wife.
+        You are the person I choose,
+        the person I cherish,
+        and the person I want beside me for the rest of my life. ❤️
+    </p>
+
+    <p>
+        Happy Birthday, my Anpu. 🎂❤️
+    </p>
+
+    <p>
+        I hope this birthday reminds you of how deeply you are loved,
+        how precious you are to me,
+        and how grateful I am to call you my wife.
+    </p>
+
+    <p>
+        I love you today, tomorrow, and for all the days
+        we still have ahead of us. ❤️
+    </p>
+
+    <p class="letter-signature">
+        Forever yours,<br>
+        Your Husband STARBIN ❤️
+    </p>
+    <p>Note: The content in this letter is mine ,
+
+        But performance made by chatGPT
+
+        "sorry".
+
+     </p>
+
+
+</div>
+
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     REASONS
+========================================================= -->
+
+<section class="reasons-section">
+
+    <div class="section-container">
+
+        <p class="section-label">
+            JUST BECAUSE...
+        </p>
+
+        <h2>
+            Reasons I Love You ❤️
+        </h2>
+
+
+        <div class="reasons-grid">
+
+
+            <div class="reason-card">
+
+                <div class="reason-icon">
+                    🌸
+                </div>
+
+                <h3>
+                    Your Smile
+                </h3>
+
+                <p>
+                    It can turn even the hardest day
+                    into something beautiful.
+                </p>
+
+            </div>
+
+
+            <div class="reason-card">
+
+                <div class="reason-icon">
+                    💕
+                </div>
+
+                <h3>
+                    Your Heart
+                </h3>
+
+                <p>
+                    You make the people around you
+                    feel loved and cared for.
+                </p>
+
+            </div>
+
+
+            <div class="reason-card">
+
+                <div class="reason-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Your Presence
+                </h3>
+
+                <p>
+                    Everything feels a little better
+                    when you are around.
+                </p>
+
+            </div>
+
+
+            <div class="reason-card">
+
+                <div class="reason-icon">
+                    🥰
+                </div>
+
+                <h3>
+                    Simply You
+                </h3>
+
+                <p>
+                    I don't need a reason.
+                    I just love you for being you.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL MESSAGE
+========================================================= -->
+
+<section class="final-section">
+
+    <div class="final-content">
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+        <h2>
+            If I could choose all over again...
+        </h2>
+
+        <p>
+            I would still choose you.
+        </p>
+
+        <div class="final-name">
+            Happy Birthday, Shree ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    Made with ❤️ especially for Shree
+
+</footer>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     MUSIC BUTTON
+========================================================= -->
+
+<button
+    id="musicButton"
+    class="music-button"
+    onclick="toggleMusic()">
+
+    🎵
+
+</button>
+
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+
+</body>
+
+</html>
+
